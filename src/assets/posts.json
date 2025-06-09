@@ -87,7 +87,7 @@
       "longitude": -46.6333
     },
     "emoji": "😶‍🌫️",
-    "url": ""
+    "url": "https://www.instagram.com/p/DHjukgKuHQ4"
   },
   {
     "location": {
@@ -408,5 +408,75 @@
     },
     "emoji": "🐢",
     "url": "https://www.instagram.com/p/DCU6zXSp0Ro"
+  },
+  {
+    "location": {
+      "name": "Fernando de Noronha",
+      "latitude": -3.84036,
+      "longitude": -32.4113,
+      "country": "Brazil"
+    },
+    "emoji": "🏝",
+    "url": "https://www.instagram.com/p/DKpreOMuXi1"
+  },
+  {
+    "location": {
+      "name": "Bali",
+      "latitude": -8.409518,
+      "longitude": 115.188919,
+      "country": "Indonesia"
+    },
+    "emoji": "🌺",
+    "url": "https://www.instagram.com/p/DKK45EIgLGd"
+  },
+  {
+    "location": {
+      "name": "Gili Trawangan",
+      "latitude": -8.350785,
+      "longitude": 116.038628,
+      "country": "Indonesia"
+    },
+    "emoji": "🩵ིྀ",
+    "url": "https://www.instagram.com/p/DKPb8c6A4ni"
+  },
+  {
+    "location": {
+      "name": "Koh Samui",
+      "latitude": 9.512017,
+      "longitude": 100.013596,
+      "country": "Thailand"
+    },
+    "emoji": "🐘",
+    "url": "https://www.instagram.com/p/DJiz66kBH4t"
+  },
+  {
+    "location": {
+      "name": "Koh Phi Phi",
+      "latitude": 7.7333,
+      "longitude": 98.7667,
+      "country": "Thailand"
+    },
+    "emoji": "🐈",
+    "url": "https://www.instagram.com/p/DKK2776AKX7"
+  },
+  {
+    "location": {
+      "name": "Phuket",
+      "latitude": 7.878978,
+      "longitude": 98.398392,
+      "country": "Thailand"
+    },
+    "emoji": "🍜",
+    "url": "https://www.instagram.com/p/DKK2776AKX7"
+  },
+  {
+    "location": {
+      "name": "Madrid",
+      "latitude": 40.4168,
+      "longitude": -3.7038,
+      "country": "Spain"
+    },
+    "emoji": "🥘",
+    "url": ""
   }
 ]

@@ -7,7 +7,7 @@
         <h2 class="modal-title">
           <a
             v-if="currentCityName === 'Florianópolis'"
-            :href=itinerary
+            :href="itinerary"
             target="_blank"
             title="Where is Lauren?"
             >✈️</a
@@ -41,7 +41,7 @@ export default {
       currentCityName: null,
       konamiCode: [38, 38, 40, 40, 37, 39, 37, 39, 66, 65], // Key codes for ↑↑↓↓←→←→BA
       konamiIndex: 0, // Track the user's progress in the code
-      itinerary: "https://trips.larien.dev"
+      itinerary: "https://trips.larien.dev",
     };
   },
   mounted() {
@@ -49,8 +49,8 @@ export default {
     window.addEventListener("keydown", this.handleKonamiCode);
   },
   beforeDestroy() {
-  window.removeEventListener("keydown", this.handleKonamiCode);
-},
+    window.removeEventListener("keydown", this.handleKonamiCode);
+  },
   methods: {
     initMap() {
       this.map = L.map(this.$refs.map, {
@@ -82,23 +82,23 @@ export default {
       this.processPosts();
     },
     handleKonamiCode(event) {
-    if (event.keyCode === this.konamiCode[this.konamiIndex]) {
-      // Correct key in sequence
-      this.konamiIndex++;
-      if (this.konamiIndex === this.konamiCode.length) {
-        // Full sequence matched
-        this.triggerKonamiAction();
-        this.konamiIndex = 0; // Reset for future attempts
+      if (event.keyCode === this.konamiCode[this.konamiIndex]) {
+        // Correct key in sequence
+        this.konamiIndex++;
+        if (this.konamiIndex === this.konamiCode.length) {
+          // Full sequence matched
+          this.triggerKonamiAction();
+          this.konamiIndex = 0; // Reset for future attempts
+        }
+      } else {
+        // Wrong key, reset the sequence
+        this.konamiIndex = 0;
       }
-    } else {
-      // Wrong key, reset the sequence
-      this.konamiIndex = 0;
-    }
-  },
-  triggerKonamiAction() {
-    alert("You unlocked the secret itinerary! Nice job!");
-    window.open(this.itinerary, "_blank")
-  },
+    },
+    triggerKonamiAction() {
+      alert("You unlocked the secret itinerary! Nice job!");
+      window.open(this.itinerary, "_blank");
+    },
     getRandomBlue() {
       const blueTones = ["#014ba0", "#0a5cb8", "#1466c3", "#2174d4", "#3b8eed"];
       return blueTones[Math.floor(Math.random() * blueTones.length)];
@@ -281,11 +281,37 @@ export default {
   outline: none;
 }
 
-.custom-pin img {
+/* Target the Leaflet marker container for cursor and z-index only */
+:deep(.leaflet-marker-icon.custom-pin) {
+  cursor: pointer !important;
+}
+
+:deep(.leaflet-marker-icon.custom-pin:hover) {
+  z-index: 1000 !important;
+}
+
+/* Target the inner content of pins for scaling */
+:deep(.custom-pin img) {
   width: 30px;
   height: 30px;
   background-color: white;
   border-radius: 50%;
+  transition: transform 0.2s ease-in-out !important;
+  transform-origin: center center !important;
+}
+
+:deep(.custom-pin div) {
+  transition: transform 0.2s ease-in-out !important;
+  transform-origin: center center !important;
+}
+
+/* Scale the inner content on hover */
+:deep(.leaflet-marker-icon.custom-pin:hover img) {
+  transform: scale(1.3) !important;
+}
+
+:deep(.leaflet-marker-icon.custom-pin:hover div) {
+  transform: scale(1.3) !important;
 }
 
 .custom-tooltip {
@@ -363,17 +389,17 @@ export default {
 }
 
 @media (max-width: 768px) {
-  .custom-pin {
+  :deep(.custom-pin) {
     width: 40px; /* Larger size for mobile */
     height: 40px;
   }
 
-  .custom-pin img {
+  :deep(.custom-pin img) {
     width: 40px;
     height: 40px;
   }
 
-  .custom-pin div {
+  :deep(.custom-pin div) {
     font-size: 24px; /* Increase emoji size on mobile */
   }
 }

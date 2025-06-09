@@ -1,67 +1,17 @@
 ,
   {
     "location": {
-      "name": "2025: Bangkok",
+      "name": "Bangkok",
       "latitude": 13.7563,
       "longitude": 100.5018,
       "country": "Thailand"
     },
-    "emoji": "🔜",
+    "emoji": "🛺",
     "url": ""
   },
   {
     "location": {
-      "name": "2025: Fernando de Noronha",
-      "latitude": -3.84036,
-      "longitude": -32.4113,
-      "country": "Brazil"
-    },
-    "emoji": "🔜",
-    "url": ""
-  },
-  {
-    "location": {
-      "name": "2025: Bali",
-      "latitude": -8.409518,
-      "longitude": 115.188919,
-      "country": "Indonesia"
-    },
-    "emoji": "🔜",
-    "url": ""
-  },
-  {
-    "location": {
-      "name": "2025: Ko Pha Ngan",
-      "latitude": 9.7318,
-      "longitude": 100.0133,
-      "country": "Thailand"
-    },
-    "emoji": "🔜",
-    "url": ""
-  },
-  {
-    "location": {
-      "name": "2025: Phuket",
-      "latitude": 7.8804,
-      "longitude": 98.3923,
-      "country": "Thailand"
-    },
-    "emoji": "🔜",
-    "url": ""
-  },
-  {
-    "location": {
-      "name": "2025: Madrid",
-      "latitude": 40.4168,
-      "longitude": -3.7038,
-      "country": "Spain"
-    },
-    "emoji": "🔜",
-    "url": ""
-  },
-  {
-    "location": {
-      "name": "2025: Recife",
+      "name": "Recife",
       "latitude": -8.0476,
       "longitude": -34.877,
       "country": "Brazil"
@@ -71,7 +21,7 @@
   },
   {
     "location": {
-      "name": "2025: João Pessoa",
+      "name": "João Pessoa",
       "latitude": -7.11532,
       "longitude": -34.861,
       "country": "Brazil"
