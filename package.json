@@ -4,9 +4,14 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
+    "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "deploy": "gh-pages -d dist"
+    "deploy": "node scripts/deploy.js",
+    "deploy:quick": "npm run build && npm run deploy:gh-pages",
+    "deploy:gh-pages": "gh-pages -d dist",
+    "preview": "npm run build && npx serve dist",
+    "clean": "rm -rf dist"
   },
   "dependencies": {
     "core-js": "^3.8.3",

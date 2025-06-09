@@ -1,0 +1,98 @@
+name: 🚀 Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📦 Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 🔧 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+          cache: "npm"
+          cache-dependency-path: "map/package-lock.json"
+
+      - name: 📥 Install dependencies
+        working-directory: ./map
+        run: npm ci
+
+      - name: 🧹 Clean previous builds
+        working-directory: ./map
+        run: npm run clean
+
+      - name: 🏗️ Build Vue.js application
+        working-directory: ./map
+        run: npm run build
+        env:
+          NODE_ENV: production
+
+      - name: 📋 Copy CNAME for custom domain
+        working-directory: ./map
+        run: |
+          if [ -f "../CNAME" ]; then
+            cp ../CNAME dist/CNAME
+            echo "✅ CNAME file copied for custom domain"
+          else
+            echo "⚠️ No CNAME file found - using default GitHub Pages domain"
+          fi
+
+      - name: 🚫 Create .nojekyll file
+        working-directory: ./map
+        run: |
+          touch dist/.nojekyll
+          echo "✅ .nojekyll file created"
+
+      - name: 📤 Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./map/dist
+          publish_branch: gh-pages
+          force_orphan: true
+          user_name: "github-actions[bot]"
+          user_email: "github-actions[bot]@users.noreply.github.com"
+          commit_message: |
+            🚀 Deploy: ${{ github.event.head_commit.message }}
+
+            Deployed from commit: ${{ github.sha }}
+            Repository: ${{ github.repository }}
+            Branch: ${{ github.ref_name }}
+
+      - name: 🎉 Deployment Summary
+        run: |
+          echo "## 🎉 Deployment Successful!" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Your Vue.js Travel Map has been deployed to GitHub Pages!" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### 🌐 Live URLs:" >> $GITHUB_STEP_SUMMARY
+          if [ -f "CNAME" ]; then
+            DOMAIN=$(cat CNAME)
+            echo "- **Custom Domain**: https://$DOMAIN" >> $GITHUB_STEP_SUMMARY
+          fi
+          echo "- **GitHub Pages**: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### 📊 Build Details:" >> $GITHUB_STEP_SUMMARY
+          echo "- **Commit**: ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Branch**: ${{ github.ref_name }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Triggered by**: ${{ github.actor }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "⏰ Note: It may take a few minutes for changes to be visible on the live site."
