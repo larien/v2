@@ -25,16 +25,7 @@ export function useCountryInteractions() {
   };
 
   const onEachCountryFeature = (feature, layer, geojsonLayer) => {
-    const countryName = feature.properties.name || "Unknown Country";
-
-    // Bind tooltip to the country
-    layer.bindTooltip(countryName, {
-      permanent: false,
-      direction: "auto",
-      className: "custom-tooltip",
-    });
-
-    // Add hover interactions
+    // Add hover interactions only (no tooltips)
     layer.on({
       mouseover: (e) => highlightCountry(e),
       mouseout: (e) => resetCountryHighlight(e, geojsonLayer),

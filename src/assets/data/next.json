@@ -8,25 +8,5 @@
     },
     "emoji": "🛺",
     "url": ""
-  },
-  {
-    "location": {
-      "name": "Recife",
-      "latitude": -8.0476,
-      "longitude": -34.877,
-      "country": "Brazil"
-    },
-    "emoji": "🔜",
-    "url": ""
-  },
-  {
-    "location": {
-      "name": "João Pessoa",
-      "latitude": -7.11532,
-      "longitude": -34.861,
-      "country": "Brazil"
-    },
-    "emoji": "🔜",
-    "url": ""
   }
 ]

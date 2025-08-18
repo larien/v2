@@ -478,5 +478,36 @@
     },
     "emoji": "🥘",
     "url": ""
+  },
+
+  {
+    "location": {
+      "name": "Recife",
+      "latitude": -8.0476,
+      "longitude": -34.877,
+      "country": "Brazil"
+    },
+    "emoji": "🌊",
+    "url": "https://www.instagram.com/p/DM6PuLfAMLHFjeo_a5G4buf13Vq-ufaHXoCGds0"
+  },
+  {
+    "location": {
+      "name": "João Pessoa",
+      "latitude": -7.11532,
+      "longitude": -34.861,
+      "country": "Brazil"
+    },
+    "emoji": "🌅",
+    "url": "https://www.instagram.com/p/DM6PuLfAMLHFjeo_a5G4buf13Vq-ufaHXoCGds0"
+  },
+  {
+    "location": {
+      "name": "Maceió",
+      "latitude": -9.6496,
+      "longitude": -35.7089,
+      "country": "Brazil"
+    },
+    "emoji": "🏖️",
+    "url": "https://www.instagram.com/p/DM6PuLfAMLHFjeo_a5G4buf13Vq-ufaHXoCGds0"
   }
 ]

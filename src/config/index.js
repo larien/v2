@@ -18,13 +18,12 @@ export const MAP_CONFIG = {
   minZoom: 2,
   maxZoom: 18,
   tileLayer: {
-    url: "https://stamen-tiles-{s}.a.ssl.fastly.net/toner-background/{z}/{x}/{y}.{ext}",
+    url: "https://tiles.stadiamaps.com/tiles/alidade_smooth_dark_nolabels/{z}/{x}/{y}{r}.png",
     options: {
-      attribution: "",
+      attribution: "©Stadia Maps ©OpenMapTiles ©OpenStreetMap contributors",
       subdomains: "abcd",
       minZoom: 0,
       maxZoom: 20,
-      ext: "png",
     },
   },
   geojsonUrl:

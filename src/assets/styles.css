@@ -7,6 +7,11 @@
   background: #001f3f; /* Dark navy background */
 }
 
+/* Ensure the map background is dark blue */
+#map {
+  background: #001f3f;
+}
+
 .country-visited {
   stroke: #ffffff;
   stroke-width: 2;
