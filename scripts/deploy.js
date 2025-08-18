@@ -43,7 +43,9 @@ try {
 
   // Step 2: Build the project
   step("Building Vue.js project...");
-  execSync("npm run build", { stdio: "inherit" });
+  execSync("NODE_OPTIONS='--openssl-legacy-provider' npm run build", {
+    stdio: "inherit",
+  });
   success("Build completed successfully");
 
   // Step 3: Copy CNAME file

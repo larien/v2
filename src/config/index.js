@@ -18,9 +18,9 @@ export const MAP_CONFIG = {
   minZoom: 2,
   maxZoom: 18,
   tileLayer: {
-    url: "https://tiles.stadiamaps.com/tiles/alidade_smooth_dark_nolabels/{z}/{x}/{y}{r}.png",
+    url: "https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png",
     options: {
-      attribution: "©Stadia Maps ©OpenMapTiles ©OpenStreetMap contributors",
+      attribution: "©OpenStreetMap, ©CartoDB",
       subdomains: "abcd",
       minZoom: 0,
       maxZoom: 20,

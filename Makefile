@@ -18,10 +18,11 @@ help:
 	@echo "🧹 Maintenance:"
 	@echo "  clean      - Clean build directory"
 	@echo "  lint       - Run ESLint"
+	@echo "  update-db  - Update browserslist database"
 	@echo ""
 	@echo "🚀 Deployment:"
 	@echo "  deploy     - Full deployment to GitHub Pages"
-	@echo "  deploy:quick - Quick deployment (build + deploy)"
+	@echo "  deploy-quick - Quick deployment (build + deploy)"
 	@echo ""
 
 # Install dependencies
@@ -38,7 +39,7 @@ dev:
 # Build for production
 build:
 	@echo "🔨 Building for production..."
-	npm run build
+	NODE_OPTIONS="--openssl-legacy-provider" npm run build
 	@echo "✅ Build completed!"
 
 # Clean build directory
@@ -52,10 +53,16 @@ lint:
 	@echo "🔍 Running ESLint..."
 	npm run lint
 
+# Update browserslist database
+update-db:
+	@echo "🔄 Updating browserslist database..."
+	npx update-browserslist-db@latest
+	@echo "✅ Browserslist database updated!"
+
 # Preview production build
 preview:
 	@echo "👀 Building and previewing production build..."
-	npm run preview
+	NODE_OPTIONS="--openssl-legacy-provider" npm run preview
 
 # Full deployment (uses the deploy script)
 deploy:
@@ -63,7 +70,7 @@ deploy:
 	npm run deploy
 
 # Quick deployment (build + deploy)
-deploy:quick:
+deploy-quick:
 	@echo "⚡ Quick deployment..."
 	npm run deploy:quick
 
